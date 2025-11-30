@@ -9,12 +9,10 @@ from app.config import config
 
 def build_interface() -> gr.Blocks:
     custom_css = """
-    /* Slightly enlarge overall UI scale */
     .gradio-container {
         font-size: 18px;
     }
-
-    /* Shrink chat buttons: override Gradio's full-width style */
+    
     .chat-button {
         flex: 0 0 auto !important;
         max-width: 150px !important;
@@ -133,3 +131,4 @@ def build_interface() -> gr.Blocks:
         demo.queue(max_size=32)
 
     return demo
+
