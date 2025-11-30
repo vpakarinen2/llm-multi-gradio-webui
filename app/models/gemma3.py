@@ -1,11 +1,15 @@
 from __future__ import annotations
 
+import logging
 import torch
 
 from transformers import AutoProcessor, Gemma3nForConditionalGeneration
 from typing import Any, Dict, List, Tuple
 from functools import lru_cache
 from app.config import config
+
+
+logger = logging.getLogger("app.models.gemma3")
 
 
 def _get_torch_dtype(dtype_str: str) -> torch.dtype:
@@ -23,6 +27,13 @@ def get_model_and_processor() -> Tuple[Gemma3nForConditionalGeneration, AutoProc
     """Load Gemma 3n model and processor."""
     torch_dtype = _get_torch_dtype(config.model.dtype)
 
+    logger.info(
+        "Initializing Gemma 3n backend (model_id=%s, device=%s, dtype=%s)",
+        config.model.model_id,
+        config.model.device,
+        config.model.dtype,
+    )
+
     model = Gemma3nForConditionalGeneration.from_pretrained(
         config.model.model_id,
         torch_dtype=torch_dtype,
@@ -32,6 +43,7 @@ def get_model_and_processor() -> Tuple[Gemma3nForConditionalGeneration, AutoProc
     model = model.eval()
 
     processor = AutoProcessor.from_pretrained(config.model.model_id)
+    logger.info("Gemma 3n model and processor loaded")
     return model, processor
 
 

@@ -1,7 +1,12 @@
 from __future__ import annotations
 
+import logging
+
 from app.models.gemma3 import generate_image_caption
 from typing import Any, Optional
+
+
+logger = logging.getLogger("app.ui.caption")
 
 
 def caption_pipeline(
@@ -15,10 +20,17 @@ def caption_pipeline(
 
     prompt_stripped = prompt.strip() or "Describe this image in detail."
 
+    logger.info(
+        "caption_pipeline: start (has_image=%s, max_new_tokens=%d)",
+        image is not None,
+        max_new_tokens,
+    )
+
     caption = generate_image_caption(
         image=image,
         prompt=prompt_stripped,
         max_new_tokens=max_new_tokens,
     )
 
+    logger.info("caption_pipeline: done")
     return caption

@@ -1,10 +1,15 @@
 from __future__ import annotations
 
+import logging
+
 from app.models.gemma3 import generate_chat_response
 from typing import List, Optional, Tuple
 
 
 ChatHistory = List[Tuple[str, str]]
+
+
+logger = logging.getLogger("app.ui.callbacks")
 
 
 def chat_pipeline(
@@ -22,6 +27,14 @@ def chat_pipeline(
     if not user_input_stripped:
         return history, history, user_input
 
+    logger.info(
+        "chat_pipeline: start (len_history=%d, max_new_tokens=%d, temp=%.3f, top_p=%.3f)",
+        len(history),
+        max_new_tokens,
+        temperature,
+        top_p,
+    )
+
     new_history, _answer = generate_chat_response(
         history=history,
         user_input=user_input_stripped,
@@ -30,4 +43,5 @@ def chat_pipeline(
         top_p=top_p,
     )
 
+    logger.info("chat_pipeline: done (len_history=%d)", len(new_history))
     return new_history, new_history, ""
