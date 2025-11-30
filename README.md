@@ -53,7 +53,7 @@ huggingface-cli login
 
 ## Usage
 ```
-python -m app.server
+python -m app.main
 ```
 
 ## Author
