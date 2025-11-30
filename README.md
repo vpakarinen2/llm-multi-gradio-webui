@@ -2,6 +2,11 @@
 
 A Gradio-based web interface for multimodal generation (Gemma3n 5B as a default model).
 
+## Screenshots
+
+![Chat tab](chat.png)
+![Image Captioning tab](image-captioning.png)
+
 ## Requirements
 
 - NVIDIA GPU (8GB+ VRAM)
@@ -35,6 +40,15 @@ pip install torch --index-url https://download.pytorch.org/whl/cu121
 4. Install dependencies:
 ```
 pip install -r requirements.txt
+```
+
+## Hugging Face Token
+
+1. Log in to Hugging Face
+2. Create an access token (Settings → Access Tokens).
+3. Log in:
+```
+huggingface-cli login
 ```
 
 ## Usage
