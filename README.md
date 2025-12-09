@@ -42,6 +42,12 @@ pip install torch --index-url https://download.pytorch.org/whl/cu121
 pip install -r requirements.txt --no-deps
 ```
 
+5. Create `.env` file:
+```
+GRADIO_SERVER_NAME=127.0.0.1
+GRADIO_SERVER_PORT=7860
+```
+
 ## Hugging Face Token
 
 1. Log in to Hugging Face
