@@ -34,18 +34,25 @@ source .venv/bin/activate
 
 3. Install PyTorch with CUDA:
 ```
-pip install torch --index-url https://download.pytorch.org/whl/cu121
+pip install --index-url https://download.pytorch.org/whl/cu121 torch torchvision torchaudio
 ```
 
 4. Install dependencies:
 ```
-pip install -r requirements.txt --no-deps
+pip install -r requirements.txt
 ```
 
 5. Create `.env` file:
 ```
 GRADIO_SERVER_NAME=127.0.0.1
 GRADIO_SERVER_PORT=7860
+
+APP_MODEL_ID=google/gemma-3n-E2B-it
+APP_MODEL_MAX_NEW_TOKENS=256
+APP_MODEL_TEMPERATURE=0.7
+APP_MODEL_DTYPE=bfloat16
+APP_MODEL_DEVICE=cuda
+APP_MODEL_TOP_P=0.95
 ```
 
 ## Hugging Face Token
