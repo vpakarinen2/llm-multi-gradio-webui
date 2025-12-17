@@ -4,8 +4,8 @@ A Gradio web interface for multimodal generation (Gemma3n 5B as a default model)
 
 ## Screenshots
 
-![Chat tab](chat.png)
-![Image Captioning tab](image-captioning.png)
+![Chat tab](screenshots/chat.png)
+![Image Captioning tab](screenshots/image-captioning.png)
 
 ## Requirements
 
