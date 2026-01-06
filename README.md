@@ -1,4 +1,4 @@
-# LLM Gradio WebUI (text + image).
+# LLM Gradio WebUI (text + image captioning).
 
 A Gradio web interface for multimodal generation (Gemma3n 5B default model).
 
