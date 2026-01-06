@@ -69,6 +69,15 @@ huggingface-cli login
 python -m app.main
 ```
 
+## Logging
+
+```
+[2026-01-06 17:16:08,683] [INFO] app.ui.callbacks: chat_pipeline: start (len_history=1, max_new_tokens=256, temp=0.700, top_p=0.950)
+[2026-01-06 17:16:25,862] [INFO] app.ui.callbacks: chat_pipeline: done (len_history=2)
+[2026-01-06 17:17:21,690] [INFO] app.ui.callbacks: chat_pipeline: start (len_history=2, max_new_tokens=256, temp=0.700, top_p=0.950)
+[2026-01-06 17:18:31,468] [INFO] app.ui.callbacks: chat_pipeline: done (len_history=3)
+```
+
 ## Author
 
 Ville Pakarinen (@vpakarinen2)
